@@ -3,9 +3,11 @@
 one:
   provider: MyString
   uid: MyString
-  nameimage_url: MyString
+  name: MyString
+  image_url--force: MyString
 
 two:
   provider: MyString
   uid: MyString
-  nameimage_url: MyString
+  name: MyString
+  image_url--force: MyString
