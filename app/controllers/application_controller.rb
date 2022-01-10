@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !!session[:user_id]
     # !はnot演算子。2つ重ねるとsession[:user_id]がfalse、nilのときはfalse。それ以外の値はtrueにする。
+    # 否定の否定
   end
 
   def current_user
