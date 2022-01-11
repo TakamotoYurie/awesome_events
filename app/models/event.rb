@@ -14,4 +14,5 @@ class Event < ApplicationRecord
     if start_at >= end_at
       errors.add(:start_at, "は終了時間より前に設定してください")
     end
+  end
 end
