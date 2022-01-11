@@ -6,7 +6,7 @@
 .card.mb-2
   %h5.card-header 開催時間
   .card-body
-    %p.card-text= #{l(@event.start_at, format: :long)} - #{|(@event.end_at, format: :long)}"#
+    %p.card-text= #{l(@event.start_at, format: :long)} - #{l(@event.end_at, format: :long)}"#
 
 .card.mb-2
   %h5.card-header 開催場所
