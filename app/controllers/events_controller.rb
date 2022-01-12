@@ -34,6 +34,11 @@ class EventsController < ApplicationController
     redirect_to root_path, notice: "削除しました"
   end
 
+  def show
+    @event = Event.find(params[:id])
+    @tickets = @event.tickets.includes(:user).order(:created_at)
+  end
+
   private
 
   def event_params
