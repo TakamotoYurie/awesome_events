@@ -15,6 +15,8 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @ticket = current_user && current_user.tickets.find_by(event: @event)
+    @tickets = @event.tickets.includes(:user).order(:created_at)
   end
 
   def edit
@@ -32,11 +34,6 @@ class EventsController < ApplicationController
     @event = current_user.created_events.find(params[:id])
     @event.destroy!
     redirect_to root_path, notice: "削除しました"
-  end
-
-  def show
-    @event = Event.find(params[:id])
-    @tickets = @event.tickets.includes(:user).order(:created_at)
   end
 
   private
