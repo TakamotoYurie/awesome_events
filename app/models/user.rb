@@ -21,7 +21,9 @@ class User < ApplicationRecord
 
   def check_all_events_finished
     now = Time.zone.now
-    if created_events.where(":now < end_at", now: now).exists?
+    # if created_events.where(":now < end_at", now: now).exists?
+    # https://railsguides.jp/active_record_querying.html#%E6%9D%A1%E4%BB%B6%E3%82%92%E9%85%8D%E5%88%97%E3%81%A7%E8%A1%A8%E3%81%99
+    if created_events.where("? < end_at", now).exists?
       errors[:base] << "公開中の未終了イベントが存在します。"
     end
 
